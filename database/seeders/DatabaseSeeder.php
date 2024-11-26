@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PackageSeeder::class,
             BatchSeeder::class,
-            BookingSeeder::class,
         ]);
     }
 }

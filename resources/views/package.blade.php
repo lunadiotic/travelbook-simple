@@ -18,7 +18,7 @@
                                 </li>
                                 <li>
                                     <i class="fas fa-user-friends"></i>
-                                    People: {{ $package->max_people }}
+                                    People: {{ $package->latestBatch->quota }}
                                 </li>
                             </ul>
                         </div>
@@ -72,8 +72,11 @@
                                                 data-parent="#accordionExample">
                                                 <div class="card-body">
                                                     <p>
-                                                        Available Quota: {{ ( $package->max_people -
-                                                        $batch->quota_available) }}/{{ $package->max_people }} people
+                                                        Price: Rp{{ number_format($batch->price, 0, ',', '.') }}
+                                                    </p>
+                                                    <p>
+                                                        Available Quota: {{ ( $batch->quota -
+                                                        $batch->available) }}/{{ $batch->quota }} people
                                                     </p>
                                                 </div>
                                             </div>
@@ -90,7 +93,7 @@
                 <div class="sidebar">
                     <div class="package-price">
                         <h5 class="price">
-                            <span>Rp{{ number_format($package->price, 0, ',', '.') }}</span> / person
+                            <span>Rp{{ number_format($package->latestBatch->price, 0, ',', '.') }}</span> / person
                         </h5>
                     </div>
                     <div class="widget-bg booking-form-wrap">

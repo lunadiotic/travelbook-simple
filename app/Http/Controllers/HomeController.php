@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $packages = Package::inRandomOrder()->limit(6)->get();
+        $packages = Package::inRandomOrder()->with('latestBatch')->limit(6)->get();
         return view('home', ['packages' => $packages]);
     }
 }

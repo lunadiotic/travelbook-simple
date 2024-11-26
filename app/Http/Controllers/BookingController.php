@@ -6,6 +6,7 @@ use App\Models\Batch;
 use App\Models\Booking;
 use App\Models\Package;
 use Illuminate\Http\Request;
+use Ramsey\Uuid\Uuid;
 
 class BookingController extends Controller
 {
@@ -32,10 +33,11 @@ class BookingController extends Controller
         $batch = Batch::findOrFail($request->batch_id);
 
         $data = [
+            'code' => Uuid::uuid4(),
             'email' => $request->email,
             'batch_id' => $request->batch_id,
             'pax' => $request->pax,
-            'total_price' => $request->pax * $batch->package->price,
+            'total_price' => $request->pax * $batch->price,
             'status' => 'pending',
         ];
 
@@ -46,13 +48,13 @@ class BookingController extends Controller
         }
 
         // check if selected batch is full
-        if ($request->pax > $batch->quota_available) {
+        if ($request->pax > $batch->available) {
             return redirect()->back()->with('error', 'Selected batch is full.');
         }
 
         Booking::create($data);
 
-        $batch->decrement('quota_available', $request->pax);
+        $batch->decrement('available', $request->pax);
         $batch->save();
 
         return redirect()->back()->with('success', 'Booking successful.');

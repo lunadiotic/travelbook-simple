@@ -14,4 +14,15 @@ class Package extends Model
     {
         return $this->hasMany(Batch::class);
     }
+
+    public function latestBatch()
+    {
+        return $this->hasOne(Batch::class)->latestOfMany()->withDefault([
+            'start_date' => null,
+            'end_date' => null,
+            'price' => 0,
+            'quota' => 0,
+            'available' => 0
+        ]);
+    }
 }

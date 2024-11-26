@@ -17,8 +17,6 @@ return new class extends Migration
             $table->string('description');
             $table->integer('days');
             $table->integer('nights');
-            $table->decimal('price');
-            $table->integer('max_people');
             $table->timestamps();
         });
     }

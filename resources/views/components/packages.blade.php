@@ -25,7 +25,8 @@
                             </a>
                         </figure>
                         <div class="package-price">
-                            <h6><span>Rp{{ number_format($package->price, 0, ',', '.') }} </span> / per
+                            <h6><span>Rp{{ number_format($package->latestBatch->price, 0, ',', '.') }} </span> /
+                                per
                                 person</h6>
                         </div>
                         <div class="package-content-wrap">
@@ -37,7 +38,7 @@
                                     </li>
                                     <li>
                                         <i class="fas fa-user-friends"></i>
-                                        People: {{ $package->max_people }}
+                                        People: {{ $package->latestBatch->quota }}
                                     </li>
                                 </ul>
                             </div>
