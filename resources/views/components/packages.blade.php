@@ -20,7 +20,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="package-wrap">
                         <figure class="feature-image">
-                            <a href="#">
+                            <a href="{{ route('packages.show', $package->id) }}">
                                 <img src="{{ asset('assets/images/img5.jpg') }}" alt="" />
                             </a>
                         </figure>
@@ -43,12 +43,12 @@
                             </div>
                             <div class="package-content">
                                 <h3>
-                                    <a href="#">{{ $package->title }}</a>
+                                    <a href="{{ route('packages.show', $package->id) }}">{{ $package->name }}</a>
                                 </h3>
                                 <p>{{ $package->description }}</p>
                                 <div class="btn-wrap">
-                                    <a href="#" class="button-text width-6">Book Now<i
-                                            class="fas fa-arrow-right"></i></a>
+                                    <a href="{{ route('packages.show', $package->id) }}"
+                                        class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
