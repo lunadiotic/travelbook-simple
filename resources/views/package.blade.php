@@ -95,37 +95,62 @@
                     </div>
                     <div class="widget-bg booking-form-wrap">
                         <h4 class="bg-title">Booking</h4>
-                        <form class="booking-form">
+                        <form class="booking-form" method="POST" action="{{ route('booking.store') }}">
+                            @csrf
                             <div class="row">
                                 <div class="col-sm-12">
+                                    @if (session('error'))
+                                    <div class="alert alert-danger">
+                                        {{ session('error') }}
+                                    </div>
+                                    @endif
+                                    @if (session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                    @endif
+                                </div>
+                                <div class="col-sm-12">
                                     <div class="form-group">
-                                        <input name="name_booking" type="text" placeholder="Full Name" />
+                                        <input type="text" name="full_name" placeholder="Full Name" />
+                                        @error('full_name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <input name="email_booking" type="text" placeholder="Email" />
+                                        <input type="email" name="email" placeholder="Email" />
+                                        @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <input type="number" name="pax" id="" placeholder="Pax" />
+                                        <input type="number" name="pax" id="" placeholder="Pax" value="1" />
+                                        @error('pax')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <select name="batch" id="">
+                                        <select name="batch_id" id="">
                                             @foreach ($package->batches as $batch)
                                             <option value="{{ $batch->id }}">
                                                 Batch {{ $loop->count - $loop->iteration +1 }}
                                             </option>
                                             @endforeach
                                         </select>
+                                        @error('batch_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group submit-btn">
-                                        <a href="bookings.html" class="button-primary">Booking</a>
+                                        <button type="submit" class="button-primary">Booking</button>
                                     </div>
                                 </div>
                             </div>
