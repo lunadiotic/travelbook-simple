@@ -15,4 +15,9 @@ class Booking extends Model
         'total_price',
         'status',
     ];
+
+    public function batch()
+    {
+        return $this->belongsTo(Batch::class);
+    }
 }

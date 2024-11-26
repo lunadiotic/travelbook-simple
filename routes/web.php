@@ -8,3 +8,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/packages/{package}', [PackageController::class, 'show'])->name('packages.show');
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+Route::get('/booking/check', [BookingController::class, 'login'])->name('booking.login');
+Route::post('/booking/check', [BookingController::class, 'bookingCheck'])->name('booking.check');

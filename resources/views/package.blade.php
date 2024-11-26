@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-<x-banner />
+<x-banner :title="'Package Detail'" />
 <div class="single-tour-section">
     <div class="container">
         <div class="row">

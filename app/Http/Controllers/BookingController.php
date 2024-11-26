@@ -9,6 +9,17 @@ use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
+    public function login()
+    {
+        return view('booking-login');
+    }
+
+    public function bookingCheck(Request $request)
+    {
+        $bookings = Booking::where('email', $request->email)->get();
+        return view('booking-check', ['bookings' => $bookings]);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
