@@ -1,8 +1,9 @@
+<!-- Home contact details section html start -->
 <section class="contact-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
-                <div class="contact-img" style="background-image: url({{ asset('assets/images/img24.jpg') }})"></div>
+                <div class="contact-img" style="background-image: url(assets/images/img24.jpg)"></div>
             </div>
             <div class="col-lg-8">
                 <div class="contact-details-wrap">
@@ -10,7 +11,7 @@
                         <div class="col-sm-4">
                             <div class="contact-details">
                                 <div class="contact-icon">
-                                    <img src="{{ asset('assets/images/icon12.png') }}" alt="" />
+                                    <img src="assets/images/icon12.png" alt="" />
                                 </div>
                                 <ul>
                                     <li>
@@ -28,7 +29,7 @@
                         <div class="col-sm-4">
                             <div class="contact-details">
                                 <div class="contact-icon">
-                                    <img src="{{ asset('assets/images/icon13.png') }}" alt="" />
+                                    <img src="assets/images/icon13.png" alt="" />
                                 </div>
                                 <ul>
                                     <li>
@@ -46,7 +47,7 @@
                         <div class="col-sm-4">
                             <div class="contact-details">
                                 <div class="contact-icon">
-                                    <img src="{{ asset('assets/images/icon14.png') }}" alt="" />
+                                    <img src="assets/images/icon14.png" alt="" />
                                 </div>
                                 <ul>
                                     <li>3146 Koontz, California</li>
@@ -65,3 +66,4 @@
         </div>
     </div>
 </section>
+<!--  contact details html end -->

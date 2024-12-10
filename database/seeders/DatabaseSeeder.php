@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             PackageSeeder::class,
-            BatchSeeder::class,
+            BatchSeeder::class
         ]);
     }
 }

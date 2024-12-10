@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->uuid('code');
+            $table->string('name');
             $table->string('email');
             $table->foreignId('batch_id')->constrained()->onDelete('cascade');
             $table->integer('pax');

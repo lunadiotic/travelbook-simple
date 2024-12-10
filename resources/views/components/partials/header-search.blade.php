@@ -1,3 +1,4 @@
+<!-- custom search field html -->
 <div class="header-search-form">
     <div class="container">
         <div class="header-search-container">
@@ -10,3 +11,4 @@
         </div>
     </div>
 </div>
+<!-- header html end -->

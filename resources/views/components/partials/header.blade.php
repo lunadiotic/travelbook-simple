@@ -50,9 +50,9 @@
         <div class="container d-flex justify-content-between align-items-center">
             <div class="site-identity">
                 <h1 class="site-title">
-                    <a href="index.html">
-                        <img class="white-logo" src="{{ asset('assets/images/travele-logo.png') }}" alt="logo" />
-                        <img class="black-logo" src="{{ asset('assets/images/travele-logo1.png') }}" alt="logo" />
+                    <a href="/">
+                        <img class="white-logo" src="/assets/images/travele-logo.png" alt="logo" />
+                        <img class="black-logo" src="/assets/images/travele-logo1.png" alt="logo" />
                     </a>
                 </h1>
             </div>
@@ -60,13 +60,13 @@
                 <nav id="navigation" class="navigation">
                     <ul>
                         <li class="">
-                            <a href="{{ url('/') }}">Home</a>
+                            <a href="/">Home</a>
                         </li>
                     </ul>
                 </nav>
             </div>
             <div class="header-btn">
-                <a href="{{ route('booking.login') }}" class="button-primary">BOOK NOW</a>
+                <a href="{{ route('auth.login') }}" class="button-primary">MY TRIP</a>
             </div>
         </div>
     </div>

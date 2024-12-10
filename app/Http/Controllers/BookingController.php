@@ -4,41 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Models\Batch;
 use App\Models\Booking;
-use App\Models\Package;
 use Illuminate\Http\Request;
-use Ramsey\Uuid\Uuid;
+use Illuminate\Support\Str;
 
 class BookingController extends Controller
 {
-    public function login()
-    {
-        return view('booking-login');
-    }
-
-    public function bookingCheck(Request $request)
-    {
-        $bookings = Booking::where('email', $request->email)->get();
-        return view('booking-check', ['bookings' => $bookings]);
-    }
-
     public function store(Request $request)
     {
         $request->validate([
-            'full_name' => 'required',
+            'name' => 'required',
             'email' => 'required|email',
-            'pax' => 'required',
-            'batch_id' => 'required',
+            'pax' => 'required|numeric',
+            'batch_id' => 'required|exists:batches,id'
         ]);
 
         $batch = Batch::findOrFail($request->batch_id);
 
         $data = [
-            'code' => Uuid::uuid4(),
+            'code' => Str::uuid(),
+            'name' => $request->name,
             'email' => $request->email,
-            'batch_id' => $request->batch_id,
             'pax' => $request->pax,
-            'total_price' => $request->pax * $batch->price,
-            'status' => 'pending',
+            'batch_id' => $batch->id,
+            'total_price' => $batch->price * $request->pax,
+            'status' => 'pending'
         ];
 
         // check if selected batch start date is not less than today
@@ -58,5 +47,11 @@ class BookingController extends Controller
         $batch->save();
 
         return redirect()->back()->with('success', 'Booking successful.');
+    }
+
+    public function check(Request $request)
+    {
+        $bookings = Booking::where('email', $request->email)->get();
+        return view('booking.check', ['bookings' => $bookings]);
     }
 }

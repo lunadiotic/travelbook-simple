@@ -11,8 +11,8 @@
                             leo.
                         </div>
                         <div class="award-img">
-                            <a href="#"><img src="{{ asset('assets/images/logo6.png') }}" alt="" /></a>
-                            <a href="#"><img src="{{ asset('assets/images/logo2.png') }}" alt="" /></a>
+                            <a href="#"><img src="assets/images/logo6.png" alt="" /></a>
+                            <a href="#"><img src="assets/images/logo2.png" alt="" /></a>
                         </div>
                     </aside>
                 </div>
@@ -108,13 +108,13 @@
                         </ul>
                     </div>
                 </div>
-                <div class="text-center col-md-2">
+                <div class="col-md-2 text-center">
                     <div class="footer-logo">
-                        <a href="#"><img src="{{ asset('assets/images/travele-logo.png') }}" alt="" /></a>
+                        <a href="#"><img src="assets/images/travele-logo.png" alt="" /></a>
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <div class="text-right copy-right">
+                    <div class="copy-right text-right">
                         Copyright © 2021 Travele. All rights reserveds
                     </div>
                 </div>
